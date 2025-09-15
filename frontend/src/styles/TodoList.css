@@ -1,0 +1,91 @@
+/* TodoList 组件样式 */
+.todo-list {
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.todo-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 加载状态 */
+.loading-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-color);
+  border-top: 2px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 空状态 */
+.empty-message {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.6;
+}
+
+.empty-message p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+}
+
+.empty-message p:first-of-type {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.empty-hint {
+  font-size: 0.9rem !important;
+  opacity: 0.8;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .loading-message {
+    padding: 30px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .empty-message {
+    padding: 40px 15px;
+  }
+  
+  .empty-icon {
+    font-size: 2.5rem;
+  }
+  
+  .empty-message p {
+    font-size: 1rem;
+  }
+  
+  .empty-hint {
+    font-size: 0.8rem !important;
+  }
+}

@@ -1,0 +1,89 @@
+/* FilterBar 组件样式 */
+.filter-bar {
+  background: var(--background-color);
+  padding: 16px 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  border: 2px solid transparent;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.filter-button:hover {
+  background-color: #e9ecef;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.filter-button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow);
+}
+
+.filter-button.active:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.filter-label {
+  font-weight: 500;
+}
+
+.filter-count {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
+
+.filter-button:not(.active) .filter-count {
+  background-color: var(--text-muted);
+  color: white;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .filter-bar {
+    padding: 12px 15px;
+  }
+  
+  .filter-buttons {
+    gap: 6px;
+  }
+  
+  .filter-button {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .filter-count {
+    padding: 1px 6px;
+    font-size: 0.7rem;
+  }
+}
