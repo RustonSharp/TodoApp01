@@ -1,4 +1,4 @@
-/* 全局样式重置和变量定义 */
+/* Global style reset and variable definitions */
 :root {
   --primary-color: #007bff;
   --primary-hover: #0056b3;
@@ -32,7 +32,7 @@ body {
   line-height: 1.6;
 }
 
-/* 主应用容器 */
+/* Main app container */
 .app {
   max-width: 800px;
   margin: 0 auto;
@@ -40,7 +40,7 @@ body {
   min-height: 100vh;
 }
 
-/* 应用头部 */
+/* App header */
 .app-header {
   text-align: center;
   margin-bottom: 30px;
@@ -73,14 +73,14 @@ body {
   backdrop-filter: blur(10px);
 }
 
-/* 主内容区域 */
+/* Main content area */
 .app-main {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* 错误消息 */
+/* Error message */
 .error-message {
   background-color: #f8d7da;
   color: #721c24;
@@ -113,7 +113,7 @@ body {
   background-color: rgba(114, 28, 36, 0.1);
 }
 
-/* 动画 */
+/* Animations */
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -134,7 +134,7 @@ body {
   }
 }
 
-/* 响应式设计 */
+/* Responsive design */
 @media (max-width: 768px) {
   .app {
     padding: 15px;

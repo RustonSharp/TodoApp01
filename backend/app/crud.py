@@ -11,7 +11,7 @@ def get_todos(db: Session, status: Optional[str] = None) -> List[Todo]:
         query = query.filter(Todo.completed == True)
     elif status == "pending":
         query = query.filter(Todo.completed == False)
-    # status == "all" 或 None 时返回所有记录
+    # Return all records when status == "all" or None
     
     return query.order_by(Todo.created_at.desc()).all()
 

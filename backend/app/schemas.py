@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import Optional, Any
 
 class TodoBase(BaseModel):
-    title: str = Field(..., min_length=1, max_length=200, description="任务标题")
+    title: str = Field(..., min_length=1, max_length=200, description="Task title")
 
 class TodoCreate(TodoBase):
     pass

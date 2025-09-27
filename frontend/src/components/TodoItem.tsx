@@ -61,7 +61,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleString('zh-CN', {
+    return date.toLocaleString('en-US', {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
@@ -76,7 +76,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
         <button
           className="toggle-button"
           onClick={onToggle}
-          title={todo.completed ? '标记为未完成' : '标记为已完成'}
+          title={todo.completed ? 'Mark as incomplete' : 'Mark as complete'}
         >
           {todo.completed ? '✓' : '○'}
         </button>
@@ -100,14 +100,14 @@ const TodoItem: React.FC<TodoItemProps> = ({
                 onClick={handleEditSave}
                 disabled={isUpdating || !editTitle.trim()}
               >
-                {isUpdating ? '保存中...' : '保存'}
+                {isUpdating ? 'Saving...' : 'Save'}
               </button>
               <button
                 className="cancel-button"
                 onClick={handleEditCancel}
                 disabled={isUpdating}
               >
-                取消
+                Cancel
               </button>
             </div>
           </div>
@@ -116,11 +116,11 @@ const TodoItem: React.FC<TodoItemProps> = ({
             <span className="todo-title">{todo.title}</span>
             <div className="todo-meta">
               <span className="todo-date">
-                创建于 {formatDate(todo.created_at)}
+                Created at {formatDate(todo.created_at)}
               </span>
               {todo.updated_at !== todo.created_at && (
                 <span className="todo-date">
-                  更新于 {formatDate(todo.updated_at)}
+                  Updated at {formatDate(todo.updated_at)}
                 </span>
               )}
             </div>

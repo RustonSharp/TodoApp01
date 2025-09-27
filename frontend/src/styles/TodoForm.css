@@ -1,4 +1,4 @@
-/* TodoForm 组件样式 */
+/* TodoForm component styles */
 .todo-form {
   background: var(--background-color);
   padding: 20px;
@@ -79,7 +79,7 @@
   padding-right: 4px;
 }
 
-/* 响应式设计 */
+/* Responsive design */
 @media (max-width: 480px) {
   .todo-form {
     padding: 15px;

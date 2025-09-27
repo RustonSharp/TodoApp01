@@ -18,9 +18,9 @@ const FilterBar: React.FC<FilterBarProps> = ({
   stats 
 }) => {
   const filters: { key: FilterStatus; label: string; count: number }[] = [
-    { key: 'all', label: '全部', count: stats.total },
-    { key: 'pending', label: '未完成', count: stats.pending },
-    { key: 'completed', label: '已完成', count: stats.completed },
+    { key: 'all', label: 'All', count: stats.total },
+    { key: 'pending', label: 'Pending', count: stats.pending },
+    { key: 'completed', label: 'Completed', count: stats.completed },
   ];
 
   return (

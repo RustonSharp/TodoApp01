@@ -41,7 +41,7 @@ function App() {
       const response = await todoAPI.getTodos();
       setTodos(response.data || []);
     } catch (err) {
-      setError(err instanceof Error ? err.message : '加载待办事项失败');
+      setError(err instanceof Error ? err.message : 'Failed to load todos');
     } finally {
       setLoading(false);
     }
@@ -56,7 +56,7 @@ function App() {
         setTodos(prev => [response.data!, ...prev]);
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : '添加待办事项失败');
+      setError(err instanceof Error ? err.message : 'Failed to add todo');
     }
   }, []);
 
@@ -66,12 +66,12 @@ function App() {
       setError(null);
       const response = await todoAPI.updateTodo(id, updates);
       if (response.data) {
-        setTodos(prev => prev.map(todo => 
+        setTodos(prev => prev.map(todo =>
           todo.id === id ? response.data! : todo
         ));
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : '更新待办事项失败');
+      setError(err instanceof Error ? err.message : 'Failed to update todo');
     }
   }, []);
 
@@ -82,7 +82,7 @@ function App() {
       await todoAPI.deleteTodo(id);
       setTodos(prev => prev.filter(todo => todo.id !== id));
     } catch (err) {
-      setError(err instanceof Error ? err.message : '删除待办事项失败');
+      setError(err instanceof Error ? err.message : 'Failed to delete todo');
     }
   }, []);
 
@@ -101,7 +101,7 @@ function App() {
       await todoAPI.deleteCompleted();
       setTodos(prev => prev.filter(todo => !todo.completed));
     } catch (err) {
-      setError(err instanceof Error ? err.message : '删除已完成事项失败');
+      setError(err instanceof Error ? err.message : 'Failed to delete completed todos');
     }
   }, []);
 
@@ -112,7 +112,7 @@ function App() {
       await todoAPI.deleteAll();
       setTodos([]);
     } catch (err) {
-      setError(err instanceof Error ? err.message : '删除所有事项失败');
+      setError(err instanceof Error ? err.message : 'Failed to delete all todos');
     }
   }, []);
 
@@ -124,11 +124,11 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>待办事项</h1>
+        <h1>Todos</h1>
         <div className="stats">
-          <span>总计: {stats.total}</span>
-          <span>已完成: {stats.completed}</span>
-          <span>未完成: {stats.pending}</span>
+          <span>Total: {stats.total}</span>
+          <span>Completed: {stats.completed}</span>
+          <span>Pending: {stats.pending}</span>
         </div>
       </header>
 
@@ -141,22 +141,22 @@ function App() {
         )}
 
         <TodoForm onAddTodo={handleAddTodo} disabled={loading} />
-        
-        <FilterBar 
-          currentFilter={filter} 
+
+        <FilterBar
+          currentFilter={filter}
           onFilterChange={setFilter}
           stats={stats}
         />
-        
-        <TodoList 
+
+        <TodoList
           todos={filteredTodos}
           onToggleTodo={handleToggleTodo}
           onDeleteTodo={handleDeleteTodo}
           onUpdateTodo={handleUpdateTodo}
           loading={loading}
         />
-        
-        <ActionBar 
+
+        <ActionBar
           onDeleteCompleted={handleDeleteCompleted}
           onDeleteAll={handleDeleteAll}
           hasCompleted={stats.completed > 0}

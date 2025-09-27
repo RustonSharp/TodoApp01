@@ -1,4 +1,4 @@
-/* FilterBar 组件样式 */
+/* FilterBar component styles */
 .filter-bar {
   background: var(--background-color);
   padding: 16px 20px;
@@ -67,7 +67,7 @@
   color: white;
 }
 
-/* 响应式设计 */
+/* Responsive design */
 @media (max-width: 480px) {
   .filter-bar {
     padding: 12px 15px;

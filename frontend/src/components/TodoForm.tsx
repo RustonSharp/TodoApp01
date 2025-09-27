@@ -41,7 +41,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo, disabled = false }) => {
         <input
           type="text"
           className="todo-input"
-          placeholder="输入新的待办事项..."
+          placeholder="Enter a new todo..."
           value={title}
           onChange={handleInputChange}
           disabled={isDisabled}
@@ -53,7 +53,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo, disabled = false }) => {
           className="add-button"
           disabled={isDisabled || !title.trim()}
         >
-          {isSubmitting ? '添加中...' : '添加'}
+          {isSubmitting ? 'Adding...' : 'Add'}
         </button>
       </div>
       {title.length > 180 && (

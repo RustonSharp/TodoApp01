@@ -1,4 +1,4 @@
-/* ActionBar 组件样式 */
+/* ActionBar component styles */
 .action-bar {
   background: var(--background-color);
   padding: 20px;
@@ -32,7 +32,7 @@
   transform: none;
 }
 
-/* 删除已完成按钮 */
+/* Delete completed button */
 .delete-completed {
   background-color: var(--warning-color);
   color: #212529;
@@ -52,7 +52,7 @@
   border-color: var(--border-color);
 }
 
-/* 删除全部按钮 */
+/* Delete all button */
 .delete-all {
   background-color: var(--danger-color);
   color: white;
@@ -66,7 +66,7 @@
   box-shadow: var(--shadow-hover);
 }
 
-/* 确认状态 */
+/* Confirmation state */
 .action-button.confirm {
   animation: pulse 0.6s ease-in-out;
   font-weight: 600;
@@ -82,7 +82,7 @@
   border-color: #c82333;
 }
 
-/* 取消按钮 */
+/* Cancel button */
 .cancel {
   background-color: var(--text-muted);
   color: white;
@@ -96,7 +96,7 @@
   box-shadow: var(--shadow-hover);
 }
 
-/* 确认消息 */
+/* Confirmation message */
 .confirm-message {
   display: flex;
   align-items: center;
@@ -118,7 +118,7 @@
   flex-shrink: 0;
 }
 
-/* 动画 */
+/* Animations */
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
@@ -139,7 +139,7 @@
   }
 }
 
-/* 响应式设计 */
+/* Responsive design */
 @media (max-width: 768px) {
   .action-bar {
     padding: 15px;

@@ -72,12 +72,12 @@ const ActionBar: React.FC<ActionBarProps> = ({
           }`}
           onClick={handleDeleteCompleted}
           disabled={isDisabled || !hasCompleted}
-          title={hasCompleted ? '清除已完成的待办事项' : '没有已完成的待办事项'}
+          title={hasCompleted ? 'Clear completed todos' : 'No completed todos'}
         >
           {showConfirm === 'completed' ? (
-            isDeleting ? '删除中...' : '确认删除已完成？'
+            isDeleting ? 'Deleting...' : 'Confirm delete completed?'
           ) : (
-            '清除已完成'
+            'Clear Completed'
           )}
         </button>
 
@@ -87,12 +87,12 @@ const ActionBar: React.FC<ActionBarProps> = ({
           }`}
           onClick={handleDeleteAll}
           disabled={isDisabled}
-          title="清除所有待办事项"
+          title="Clear all todos"
         >
           {showConfirm === 'all' ? (
-            isDeleting ? '删除中...' : '确认删除全部？'
+            isDeleting ? 'Deleting...' : 'Confirm delete all?'
           ) : (
-            '清除全部'
+            'Clear All'
           )}
         </button>
 
@@ -102,7 +102,7 @@ const ActionBar: React.FC<ActionBarProps> = ({
             onClick={handleCancel}
             disabled={isDeleting}
           >
-            取消
+            Cancel
           </button>
         )}
       </div>
@@ -112,8 +112,8 @@ const ActionBar: React.FC<ActionBarProps> = ({
           <span className="warning-icon">⚠️</span>
           <span>
             {showConfirm === 'completed'
-              ? '此操作将删除所有已完成的待办事项，无法撤销。'
-              : '此操作将删除所有待办事项，无法撤销。'
+              ? 'This action will delete all completed todos and cannot be undone.'
+              : 'This action will delete all todos and cannot be undone.'
             }
           </span>
         </div>

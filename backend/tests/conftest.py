@@ -6,7 +6,7 @@ from app.main import app
 from app.database import get_db
 from app.models import Base
 
-# 使用内存数据库进行测试
+# Use in-memory database for testing
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
 
 engine = create_engine(
@@ -16,7 +16,7 @@ TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engin
 
 @pytest.fixture(scope="function")
 def db_session():
-    """创建测试数据库会话"""
+    """Create test database session"""
     Base.metadata.create_all(bind=engine)
     db = TestingSessionLocal()
     try:
@@ -27,7 +27,7 @@ def db_session():
 
 @pytest.fixture(scope="function")
 def client(db_session):
-    """创建测试客户端"""
+    """Create test client"""
     def override_get_db():
         try:
             yield db_session

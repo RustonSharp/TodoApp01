@@ -1,67 +1,67 @@
 # Todo API Backend
 
-一个基于 FastAPI 构建的现代化待办事项管理 API。
+A modern todo management API built with FastAPI.
 
-## 功能特性
+## Features
 
-- ✅ 完整的 CRUD 操作（创建、读取、更新、删除）
-- 🔍 按状态筛选待办事项（全部、已完成、未完成）
-- 🗑️ 批量删除功能（删除已完成、删除全部）
-- 📝 数据验证和错误处理
-- 🧪 完整的测试覆盖
-- 📚 自动生成的 API 文档
-- 🔄 CORS 支持
+- ✅ Complete CRUD operations (Create, Read, Update, Delete)
+- 🔍 Filter todos by status (all, completed, pending)
+- 🗑️ Batch deletion features (delete completed, delete all)
+- 📝 Data validation and error handling
+- 🧪 Complete test coverage
+- 📚 Auto-generated API documentation
+- 🔄 CORS support
 
-## 技术栈
+## Tech Stack
 
-- **框架**: FastAPI 0.104.1
-- **数据库**: SQLite (可轻松切换到 PostgreSQL/MySQL)
+- **Framework**: FastAPI 0.104.1
+- **Database**: SQLite (easily switchable to PostgreSQL/MySQL)
 - **ORM**: SQLAlchemy 2.0.23
-- **数据验证**: Pydantic 2.5.0
-- **测试**: pytest + httpx
-- **服务器**: Uvicorn
+- **Data Validation**: Pydantic 2.5.0
+- **Testing**: pytest + httpx
+- **Server**: Uvicorn
 
-## 项目结构
+## Project Structure
 
 ```
 backend/
 ├── app/
 │   ├── __init__.py
-│   ├── main.py              # FastAPI 应用入口
-│   ├── config.py            # 配置管理
-│   ├── database.py          # 数据库配置
-│   ├── models.py            # SQLAlchemy 模型
-│   ├── schemas.py           # Pydantic 模式
-│   ├── crud.py              # 数据库操作
+│   ├── main.py              # FastAPI application entry point
+│   ├── config.py            # Configuration management
+│   ├── database.py          # Database configuration
+│   ├── models.py            # SQLAlchemy models
+│   ├── schemas.py           # Pydantic schemas
+│   ├── crud.py              # Database operations
 │   └── routers/
 │       ├── __init__.py
-│       └── todos.py         # 待办事项路由
+│       └── todos.py         # Todo routes
 ├── tests/
 │   ├── __init__.py
-│   ├── conftest.py          # 测试配置
-│   └── test_todos.py        # API 测试
-├── .env                     # 环境变量
-├── requirements.txt         # Python 依赖
-└── README.md               # 项目文档
+│   ├── conftest.py          # Test configuration
+│   └── test_todos.py        # API tests
+├── .env                     # Environment variables
+├── requirements.txt         # Python dependencies
+└── README.md               # Project documentation
 ```
 
-## 快速开始
+## Quick Start
 
-### 1. 环境要求
+### 1. Requirements
 
 - Python 3.8+
 - pip
 
-### 2. 安装依赖
+### 2. Install Dependencies
 
 ```bash
 cd backend
 pip install -r requirements.txt
 ```
 
-### 3. 环境配置
+### 3. Environment Configuration
 
-项目根目录已包含 `.env` 文件，默认配置如下：
+The project root already includes a `.env` file with default configuration:
 
 ```env
 APP_NAME=Todo API
@@ -71,39 +71,39 @@ CORS_ORIGINS=["http://localhost:3000"]
 DEBUG=true
 ```
 
-### 4. 启动服务
+### 4. Start the Server
 
 ```bash
-# 开发模式启动
+# Start in development mode
 uvicorn app.main:app --reload --port 8000
 
-# 或者指定主机和端口
+# Or specify host and port
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-### 5. 访问 API
+### 5. Access the API
 
-- **API 基础地址**: http://localhost:8000
-- **API 文档 (Swagger)**: http://localhost:8000/docs
-- **API 文档 (ReDoc)**: http://localhost:8000/redoc
-- **健康检查**: http://localhost:8000/health
+- **API Base URL**: http://localhost:8000
+- **API Documentation (Swagger)**: http://localhost:8000/docs
+- **API Documentation (ReDoc)**: http://localhost:8000/redoc
+- **Health Check**: http://localhost:8000/health
 
-## API 接口文档
+## API Documentation
 
-### 基础信息
+### Basic Information
 
 - **Base URL**: `http://localhost:8000/api/v1`
 - **Content-Type**: `application/json`
 
-### 接口列表
+### API Endpoints
 
-#### 1. 获取所有待办事项
+#### 1. Get All Todos
 
 ```http
 GET /api/v1/todos?status={all|completed|pending}
 ```
 
-**响应示例**:
+**Response Example**:
 ```json
 {
     "code": 200,
@@ -111,7 +111,7 @@ GET /api/v1/todos?status={all|completed|pending}
     "data": [
         {
             "id": 1,
-            "title": "学习 FastAPI",
+            "title": "Learn FastAPI",
             "completed": false,
             "created_at": "2024-01-15T10:30:00Z",
             "updated_at": "2024-01-15T10:30:00Z"
@@ -120,117 +120,117 @@ GET /api/v1/todos?status={all|completed|pending}
 }
 ```
 
-#### 2. 创建待办事项
+#### 2. Create Todo
 
 ```http
 POST /api/v1/todos
 ```
 
-**请求体**:
+**Request Body**:
 ```json
 {
-    "title": "新的待办事项"
+    "title": "New todo item"
 }
 ```
 
-#### 3. 更新待办事项
+#### 3. Update Todo
 
 ```http
 PUT /api/v1/todos/{todo_id}
 ```
 
-**请求体**:
+**Request Body**:
 ```json
 {
-    "title": "更新的标题",
+    "title": "Updated title",
     "completed": true
 }
 ```
 
-#### 4. 删除待办事项
+#### 4. Delete Todo
 
 ```http
 DELETE /api/v1/todos/{todo_id}
 ```
 
-#### 5. 批量删除已完成事项
+#### 5. Batch Delete Completed Todos
 
 ```http
 DELETE /api/v1/todos/completed
 ```
 
-#### 6. 批量删除所有事项
+#### 6. Batch Delete All Todos
 
 ```http
 DELETE /api/v1/todos/all
 ```
 
-## 运行测试
+## Running Tests
 
-### 安装测试依赖
+### Install Test Dependencies
 
-测试依赖已包含在 `requirements.txt` 中。
+Test dependencies are already included in `requirements.txt`.
 
-### 运行所有测试
+### Run All Tests
 
 ```bash
-# 在 backend 目录下运行
+# Run from the backend directory
 pytest
 
-# 显示详细输出
+# Show verbose output
 pytest -v
 
-# 显示测试覆盖率
+# Show test coverage
 pytest --cov=app
 
-# 生成 HTML 覆盖率报告
+# Generate HTML coverage report
 pytest --cov=app --cov-report=html
 ```
 
-### 运行特定测试
+### Run Specific Tests
 
 ```bash
-# 运行特定测试文件
+# Run specific test file
 pytest tests/test_todos.py
 
-# 运行特定测试函数
+# Run specific test function
 pytest tests/test_todos.py::test_create_todo
 ```
 
-## 数据库
+## Database
 
-### 数据库模型
+### Database Models
 
-**Todo 模型**:
-- `id`: 主键，自增整数
-- `title`: 任务标题，字符串，必填
-- `completed`: 完成状态，布尔值，默认 False
-- `created_at`: 创建时间，自动生成
-- `updated_at`: 更新时间，自动更新
+**Todo Model**:
+- `id`: Primary key, auto-incrementing integer
+- `title`: Task title, string, required
+- `completed`: Completion status, boolean, default False
+- `created_at`: Creation time, auto-generated
+- `updated_at`: Update time, auto-updated
 
-### 数据库迁移
+### Database Migration
 
-当前使用 SQLite，数据库表会在应用启动时自动创建。如需切换到其他数据库：
+Currently using SQLite, database tables are automatically created when the application starts. To switch to another database:
 
-1. 修改 `.env` 文件中的 `DATABASE_URL`
-2. 安装相应的数据库驱动
-3. 重启应用
+1. Modify `DATABASE_URL` in the `.env` file
+2. Install the appropriate database driver
+3. Restart the application
 
-**PostgreSQL 示例**:
+**PostgreSQL Example**:
 ```env
 DATABASE_URL=postgresql://user:password@localhost/todoapp
 ```
 
-**MySQL 示例**:
+**MySQL Example**:
 ```env
 DATABASE_URL=mysql+pymysql://user:password@localhost/todoapp
 ```
 
-## 部署
+## Deployment
 
-### Docker 部署
+### Docker Deployment
 
-创建 `Dockerfile`:
+Create a `Dockerfile`:
 
 ```dockerfile
 FROM python:3.9-slim
@@ -247,82 +247,82 @@ EXPOSE 8000
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
-构建和运行：
+Build and run:
 
 ```bash
 docker build -t todo-api .
 docker run -p 8000:8000 todo-api
 ```
 
-### 生产环境部署
+### Production Deployment
 
 ```bash
-# 使用 gunicorn + uvicorn workers
+# Use gunicorn with uvicorn workers
 pip install gunicorn
 gunicorn app.main:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
 ```
 
-## 开发指南
+## Development Guide
 
-### 添加新的 API 端点
+### Adding New API Endpoints
 
-1. 在 `app/schemas.py` 中定义 Pydantic 模式
-2. 在 `app/crud.py` 中添加数据库操作函数
-3. 在 `app/routers/` 中创建或更新路由文件
-4. 在 `app/main.py` 中注册新路由
-5. 编写相应的测试用例
+1. Define Pydantic schemas in `app/schemas.py`
+2. Add database operation functions in `app/crud.py`
+3. Create or update route files in `app/routers/`
+4. Register new routes in `app/main.py`
+5. Write corresponding test cases
 
-### 代码风格
+### Code Style
 
-- 使用 Python 类型提示
-- 遵循 PEP 8 代码规范
-- 为所有函数添加文档字符串
-- 保持函数简洁，单一职责
+- Use Python type hints
+- Follow PEP 8 code standards
+- Add docstrings to all functions
+- Keep functions concise with single responsibility
 
-### 错误处理
+### Error Handling
 
-所有 API 端点都包含适当的错误处理：
+All API endpoints include appropriate error handling:
 
-- 400: 请求参数错误
-- 404: 资源不存在
-- 422: 数据验证失败
-- 500: 服务器内部错误
+- 400: Request parameter errors
+- 404: Resource not found
+- 422: Data validation failure
+- 500: Server internal error
 
-## 性能优化
+## Performance Optimization
 
-- 使用数据库索引优化查询
-- 实现 API 响应缓存
-- 使用连接池管理数据库连接
-- 考虑使用异步数据库驱动
+- Use database indexes to optimize queries
+- Implement API response caching
+- Use connection pooling for database connections
+- Consider using async database drivers
 
-## 安全考虑
+## Security Considerations
 
-- 输入验证通过 Pydantic 自动处理
-- CORS 配置限制允许的源域名
-- 生产环境建议添加认证和授权
-- 使用 HTTPS 加密传输
+- Input validation is automatically handled by Pydantic
+- CORS configuration restricts allowed origin domains
+- Authentication and authorization recommended for production
+- Use HTTPS for encrypted transmission
 
-## 监控和日志
+## Monitoring and Logging
 
-建议在生产环境中添加：
+Recommended for production environments:
 
-- 结构化日志记录
-- 性能监控
-- 错误追踪
-- 健康检查端点（已实现）
+- Structured logging
+- Performance monitoring
+- Error tracking
+- Health check endpoints (already implemented)
 
-## 贡献指南
+## Contributing Guide
 
-1. Fork 项目
-2. 创建功能分支
-3. 提交更改
-4. 运行测试确保通过
-5. 提交 Pull Request
+1. Fork the project
+2. Create a feature branch
+3. Commit your changes
+4. Run tests to ensure they pass
+5. Submit a Pull Request
 
-## 许可证
+## License
 
 MIT License
 
-## 联系方式
+## Contact
 
-如有问题或建议，请提交 Issue 或 Pull Request。
+For questions or suggestions, please submit an Issue or Pull Request.

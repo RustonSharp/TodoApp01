@@ -1,4 +1,4 @@
-/* TodoItem 组件样式 */
+/* TodoItem component styles */
 .todo-item {
   display: flex;
   align-items: flex-start;
@@ -26,7 +26,7 @@
   color: var(--text-muted);
 }
 
-/* 切换按钮 */
+/* Toggle button */
 .toggle-button {
   width: 24px;
   height: 24px;
@@ -58,7 +58,7 @@
   color: white;
 }
 
-/* 内容区域 */
+/* Content area */
 .todo-content {
   flex: 1;
   min-width: 0;
@@ -98,7 +98,7 @@
   opacity: 0.8;
 }
 
-/* 编辑表单 */
+/* Edit form */
 .edit-form {
   width: 100%;
 }
@@ -169,7 +169,7 @@
   cursor: not-allowed;
 }
 
-/* 操作按钮 */
+/* Action buttons */
 .todo-actions {
   display: flex;
   gap: 8px;
@@ -208,7 +208,7 @@
   transform: scale(1.1);
 }
 
-/* 响应式设计 */
+/* Responsive design */
 @media (max-width: 768px) {
   .todo-item {
     padding: 12px 15px;
@@ -216,7 +216,7 @@
   }
   
   .todo-actions {
-    opacity: 1; /* 在移动设备上始终显示操作按钮 */
+    opacity: 1; /* Always show action buttons on mobile devices */
   }
   
   .edit-button,

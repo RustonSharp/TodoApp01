@@ -1,4 +1,4 @@
-// 待办事项接口
+// Todo interface
 export interface Todo {
   id: number;
   title: string;
@@ -7,35 +7,35 @@ export interface Todo {
   updated_at: string;
 }
 
-// 创建待办事项请求
+// Create todo request
 export interface TodoCreate {
   title: string;
 }
 
-// 更新待办事项请求
+// Update todo request
 export interface TodoUpdate {
   title?: string;
   completed?: boolean;
 }
 
-// API响应格式
+// API response format
 export interface ApiResponse<T = any> {
   code: number;
   message: string;
   data?: T;
 }
 
-// 错误响应格式
+// Error response format
 export interface ErrorResponse {
   code: number;
   message: string;
   detail?: string;
 }
 
-// 筛选状态类型
+// Filter status type
 export type FilterStatus = 'all' | 'completed' | 'pending';
 
-// 应用状态接口
+// App state interface
 export interface AppState {
   todos: Todo[];
   filter: FilterStatus;
@@ -43,7 +43,7 @@ export interface AppState {
   error: string | null;
 }
 
-// 批量删除响应
+// Batch delete response
 export interface DeleteResponse {
   deleted_count: number;
 }

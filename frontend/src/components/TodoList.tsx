@@ -23,7 +23,7 @@ const TodoList: React.FC<TodoListProps> = ({
       <div className="todo-list">
         <div className="loading-message">
           <div className="loading-spinner"></div>
-          <span>加载中...</span>
+          <span>Loading...</span>
         </div>
       </div>
     );
@@ -34,8 +34,8 @@ const TodoList: React.FC<TodoListProps> = ({
       <div className="todo-list">
         <div className="empty-message">
           <div className="empty-icon">📝</div>
-          <p>暂无待办事项</p>
-          <p className="empty-hint">添加一个新的待办事项开始吧！</p>
+          <p>No todos yet</p>
+          <p className="empty-hint">Add a new todo to get started!</p>
         </div>
       </div>
     );

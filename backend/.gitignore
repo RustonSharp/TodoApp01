@@ -1,12 +1,12 @@
-# Python字节码文件
+# Python bytecode files
 __pycache__/
 *.py[cod]
 *$py.class
 
-# C扩展
+# C extensions
 *.so
 
-# 分发/打包
+# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -30,7 +30,7 @@ MANIFEST
 *.manifest
 *.spec
 
-# 单元测试/覆盖率报告
+# Unit test / coverage reports
 htmlcov/
 .tox/
 .nox/
@@ -45,24 +45,24 @@ coverage.xml
 .pytest_cache/
 cover/
 
-# 翻译
+# Translations
 *.mo
 *.pot
 
-# Django相关
+# Django related
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Flask相关
+# Flask related
 instance/
 .webassets-cache
 
-# Scrapy相关
+# Scrapy related
 .scrapy
 
-# Sphinx文档
+# Sphinx documentation
 docs/_build/
 
 # PyBuilder
@@ -91,14 +91,14 @@ poetry.lock
 # PEP 582
 __pypackages__/
 
-# Celery相关
+# Celery related
 celerybeat-schedule
 celerybeat.pid
 
-# SageMath解析文件
+# SageMath parsed files
 *.sage.py
 
-# 环境变量
+# Environment variables
 .env
 .venv
 env/
@@ -107,14 +107,14 @@ ENV/
 env.bak/
 venv.bak/
 
-# Spyder项目设置
+# Spyder project settings
 .spyderproject
 .spyproject
 
-# Rope项目设置
+# Rope project settings
 .ropeproject
 
-# mkdocs文档
+# mkdocs documentation
 /site
 
 # mypy
@@ -122,30 +122,30 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
-# Pyre类型检查器
+# Pyre type checker
 .pyre/
 
-# pytype静态类型分析器
+# pytype static type analyzer
 .pytype/
 
-# Cython调试符号
+# Cython debug symbols
 cython_debug/
 
-# 数据库文件
+# Database files
 *.db
 *.sqlite
 *.sqlite3
 database.db
 test.db
 
-# FastAPI/Uvicorn相关
+# FastAPI/Uvicorn related
 .uvicorn/
 
-# 测试相关
+# Test related
 .coverage
 .pytest_cache/
 htmlcov/
 
-# 日志文件
+# Log files
 *.log
 logs/

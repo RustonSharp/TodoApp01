@@ -10,7 +10,7 @@ app = FastAPI(
     description="A simple Todo API built with FastAPI"
 )
 
-# CORS配置
+# CORS configuration
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,
@@ -19,7 +19,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 路由注册
+# Router registration
 app.include_router(todos.router, prefix="/api/v1")
 
 @app.on_event("startup")

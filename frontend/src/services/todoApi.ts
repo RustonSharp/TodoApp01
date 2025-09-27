@@ -23,13 +23,13 @@ class TodoAPI {
     return response.json();
   }
 
-  // 获取待办事项列表
+  // Get todo list
   async getTodos(status?: FilterStatus): Promise<ApiResponse<Todo[]>> {
     const query = status && status !== 'all' ? `?status=${status}` : '';
     return this.request(`/todos${query}`);
   }
 
-  // 创建待办事项
+  // Create a todo
   async createTodo(todoData: TodoCreate): Promise<ApiResponse<Todo>> {
     return this.request('/todos', {
       method: 'POST',
@@ -37,7 +37,7 @@ class TodoAPI {
     });
   }
 
-  // 更新待办事项
+  // Update a todo
   async updateTodo(id: number, updates: TodoUpdate): Promise<ApiResponse<Todo>> {
     return this.request(`/todos/${id}`, {
       method: 'PUT',
@@ -45,21 +45,21 @@ class TodoAPI {
     });
   }
 
-  // 删除单个待办事项
+  // Delete a single todo
   async deleteTodo(id: number): Promise<ApiResponse<void>> {
     return this.request(`/todos/${id}`, {
       method: 'DELETE',
     });
   }
 
-  // 删除已完成的待办事项
+  // Delete completed todos
   async deleteCompleted(): Promise<ApiResponse<DeleteResponse>> {
     return this.request('/todos/completed', {
       method: 'DELETE',
     });
   }
 
-  // 删除所有待办事项
+  // Delete all todos
   async deleteAll(): Promise<ApiResponse<DeleteResponse>> {
     return this.request('/todos/all', {
       method: 'DELETE',

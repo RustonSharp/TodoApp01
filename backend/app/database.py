@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# 数据库配置
+# Database configuration
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./database.db")
 
 engine = create_engine(
@@ -17,11 +17,11 @@ engine = create_engine(
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 def create_tables():
-    """创建数据库表"""
+    """Create database tables"""
     Base.metadata.create_all(bind=engine)
 
 def get_db():
-    """获取数据库会话"""
+    """Get database session"""
     db = SessionLocal()
     try:
         yield db
